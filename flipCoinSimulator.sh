@@ -18,8 +18,6 @@ flip=$(( RANDOM %2+1 ));
 if [ $flip -eq 1 ]
 then
      echo "Head " ;
-     (( head_count ++ ));
 else
      echo  "Tail " ;
-     (( tail_count ++ ));
 fi
