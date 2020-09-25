@@ -11,7 +11,7 @@ tail_count=0;
 
 #Looping for Either Head or Tail Won by 21 Times
 
-while [[ $(( head_count )) -le 21 || $(( tail_count )) -le 21 ]]
+while [[ $(( head_count )) -lt 21 && $(( tail_count )) -lt 21 ]]
 do
 	#Random function for getting Head or Tail
         flip=$(( RANDOM %2+1 ));
