@@ -8,9 +8,10 @@ printf "\n";
 #Declaring Counter Variable
 head_count=0;
 tail_count=0;
-count=0;
 
-while [[ $(( count )) -lt 11 ]]
+#Looping for Either Head or Tail Won by 21 Times
+
+while [[ $(( head_count )) -le 21 || $(( tail_count )) -le 21 ]]
 do
 	#Random function for getting Head or Tail
         flip=$(( RANDOM %2+1 ));
@@ -28,11 +29,19 @@ do
                 (( tail_count ++ ));
         fi
 
-	#increasing loop counter
-	(( count ++ ));
 done
 
 
 #Displaying number of times Head or Tail has won
-printf "\n";
-echo "$head_count times Head & $tail_count times Tail"
+if [ $head_count -eq $tail_count ]
+then
+
+	echo "OOps..! Game gone Tie : "$head_count"="$tail_count;
+elif [ $head_count -gt $tail_count ]
+then
+
+	echo "Congratulations ..! Head Won by "$head_count" times";
+else
+
+	echo "Congratulations ..! Tail Won by "$tail_count" times";
+fi
